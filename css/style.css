@@ -1,0 +1,162 @@
+/**********************
+* X-Schedule CSS      *
+*                     *
+* Author: Liam Logue  *
+**********************/
+
+/*************
+* Body       *
+*************/
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.nav .navbar-nav ul li:hover {
+	background-color: #42BEE0 !important;
+}
+
+
+/*************
+* Header     *
+*************/
+.header {
+	max-height: 80px;
+	height: 80px !important;
+	background-color: #2B2B2B;
+}
+
+.header_logo {
+	color: #EBEBEB;
+	font-size: 36px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	margin-left: 5%;
+}
+
+.header_logo_sub {
+	color: #42BEE0;
+	font-size: 36px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+}
+
+.header_logo_container {
+	padding-top: 1%;
+}
+
+
+/*************
+* Container  *
+*************/
+
+
+/*************
+* Search     *
+*************/
+.search_container {
+	background-color: #F8F8F8;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.search_by_id, .search_by_leader_participants, .search_by_status {
+	display: none;
+}
+
+
+/*************
+* Table      *
+*************/
+#task_table {
+	margin-top: 25px;
+}
+
+.table_legend {
+	
+}
+
+.task_edit {
+	display: none;	
+}
+
+.table_legend_done {
+	padding-top: 10px;
+	padding-bottom: 2px;
+	background-color: #DFF0D8;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.table_legend_inprogress {
+	padding-top: 10px;
+	padding-bottom: 2px;
+	background-color: #FCF8E3;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.table_legend_new {
+	padding-top: 10px;
+	padding-bottom: 2px;
+	background-color: #D9EDF7;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.table_legend_done p, .table_legend_inprogress p, .table_legend_new p {
+	margin-left: 2%;
+}
+
+h4#table_legend_click:hover {
+	cursor: pointer;
+}
+
+div#table_hidden_legend {
+	display: none;
+}
+
+
+/*************
+* Error Area *
+*************/
+#error_area {
+	display: none;
+}
+
+
+/*************
+* Footer     *
+*************/
+.footer_container {
+	margin-top: 50px;
+	min-height: 35px;
+	height: 35px !important;
+	background-color: #2B2B2B;
+}
+
+.footer_text {
+	font-size: 12px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #EBEBEB;
+	padding-top: 1%;
+}
+
+.footer_blue {
+	color: #42BEE0 !important;
+}
+
+
+/*************
+* Misc       *
+*************/
+.navbar {
+	margin-bottom: 0px !important;
+}
+
+.margin_left {
+	margin-left: 3%;
+}

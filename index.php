@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>X-Schedule : XML Task Database</title>
+
+		<!-- Load CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<!-- Header -->
+		<div class="header">
+			<div class="header_logo_container">
+				<span class="header_logo"><span class="glyphicon glyphicon-list-alt" style="color: #42BEE0 !important;"></span> X-Schedule <span style="font-size: 44px !important;">:</span> </span><span class="header_logo_sub">XML TASK DATABASE</span>
+			</div>
+		</div>
+		
+		<!-- Navbar -->
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Collapse-able nav menu for mobile/smaller screens -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#xschedule-navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<!-- Nav menu links -->
+				<div class="collapse navbar-collapse" id="xschedule-navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="index.php">Home</a></li>
+						<li><a href="new_task.php">Create New Task</a></li>
+						<li><a id="display_id" href="#">Display Tasks By ID</a></li>
+						<li><a id="display_leader_participants" href="#">Display Tasks By Leader</a></li>
+						<li><a id="search_by_status" href="#">Display Tasks By Status</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- Search Feature -->
+		<!-- By ID -->
+		<div class="search_by_id">
+			<div class="search_container">
+				<form class="form" role="form">
+					<div class="form-group">
+						<div class="margin_left">
+							<label class="control-label">Search by ID<span class="text-muted"><br/><strong>NOTE</strong>: Partial search results will work</span></label>
+							<input id="txt_search_by_id" type="text" class="form-control" placeholder="e.g. 001" />
+							<button id="btn_search_by_id" type="button" class="btn btn-primary" style="margin-top: 5px;">Search</button>
+							<button type="button" class="btn btn-info btn_reset" style="margin-top: 5px; margin-=left: 5px;">Reset</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+			
+		<!-- By Leader / Participants -->
+		<div class="search_by_leader_participants">
+			<div class="search_container">
+				<form class="form" role="form">
+					<div class="form-group">
+						<div class="margin_left">
+							<label class="control-label">Search by Leader<span class="text-muted"><br/><strong>NOTE</strong>: Partial search results will work</span></label>
+							<input id="txt_search_by_leader" name="txt_search_by_leader" type="text" class="form-control" placeholder="e.g. D. Graves" />
+							<button id="btn_search_by_leader" type="button" class="btn btn-primary" style="margin-top: 5px;">Search</button>
+							<button type="button" class="btn btn-info btn_reset" style="margin-top: 5px; margin-=left: 5px;">Reset</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+			
+			
+		<!-- By Task Status -->
+		<div class="search_by_status">
+			<div class="search_container">
+				<form class="form" role="form">
+					<div class="form-group">
+						<div class="margin_left">
+							<label class="control-label">Search by Status<span class="text-muted"></label>							
+							<select id="txt_search_by_status" class="form-control">
+								<option>New</option>
+								<option>In Progress</option>
+								<option>Done</option>
+							</select>
+							
+							<button id="btn_search_by_status" type="button" class="btn btn-primary" style="margin-top: 5px;">Search</button>
+							<button type="button" class="btn btn-info btn_reset" style="margin-top: 5px; margin-=left: 5px;">Reset</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<!-- Content -->
+		<div class="container">
+			<!-- Table -->
+			<table id="task_table" class="table table-striped">
+				<!-- Headers -->
+				<tr class="table_headers">
+					<th>ID</th>
+					<th>Title</th>
+					<th>Leader</th>
+					<th>Participants</th>
+					<th><abbr title="Target Completion Date" class="initialism">T.C.D</abbr></th>
+					<th>Summary</th>
+					<th>URL</th>
+					<th>Status</th>
+					<th> </th>
+				</tr>
+				
+				<!-- Table Data (Generated by script.js)-->
+			</table>
+			
+			<!-- Edit task -->
+			<div class="task_edit">
+				<h4>Edit Task</h4>
+				
+				<form class="form" role="form">
+					<div class="form-group col-lg-2">
+						<!-- ID -->
+						<label for="edit_id" class="control-label">ID (Autofilled)</label>
+						<div>
+							<input type="text" class="form-control" id="edit_id" value="" disabled/>
+						</div>
+					</div>
+					<div class="form-group col-lg-12">
+						<!-- Title -->
+						<label for="edit_title" class="control-label">Title</label>
+						<div>
+							<input type="text" class="form-control" id="edit_title"  placeholder="e.g. Task #123...">
+						</div>
+					</div>
+					<div class="form-group col-lg-5">
+						<!-- Leader -->
+						<label for="edit_leader" class="control-label">Leader</label>
+						<div>
+							<input type="text" class="form-control" id="edit_leader" placeholder="e.g. J. Smith...">
+						</div>
+					</div>
+					<div class="form-group col-lg-5">
+						<!-- Participants -->
+						<label for="edit_participants" class="control-label">Participants</label>
+						<div>
+							<input type="text" class="form-control" id="edit_participants" placeholder="(Optional) J. Bloggs...">
+						</div>
+					</div>
+					<div class="form-group col-lg-2">
+						<!-- T.C.D -->
+						<label for="edit_tcd" class="control-label"><abbr title="Target Completion Date" class="initialism">T.C.D</abbr></label>
+						<div>
+							<input type="text" class="form-control" id="edit_tcd" placeholder="e.g. 01-02-2014">
+						</div>
+					</div>
+					<div class="form-group col-lg-12">
+						<!-- Summary -->
+						<label for="edit_summary" class="control-label">Summary</label>
+						<div>
+							<input type="text" class="form-control" id="edit_summary" placeholder="e.g. This task will...">
+						</div>
+					</div>
+					<div class="form-group col-lg-10">
+						<!-- URL -->
+						<label for="edit_url" class="control-label">URL</label>
+						<div>
+							<input type="text" class="form-control" id="edit_url" placeholder="(Optional) http://www.google.com/">
+						</div>
+					</div>
+					<div class="form-group col-lg-2">
+						<!-- Status -->
+						<label for="edit_status" class="control-label">Status</label>
+						<div>
+							<select id="edit_status" class="form-control">
+								<option>New</option>
+								<option>In Progress</option>
+								<option>Done</option>
+							</select>
+						</div>
+					</div>
+					
+					<!-- Submit -->
+					<div class="form-group col-lg-12">				
+						<br />
+						<button id="btn_update_task" type="button" class="btn btn-success btn-lg btn-block">Update</button>
+					</div>
+					
+					<!-- Delete -->
+					<div class="form-group col-lg-12">				
+						<br />
+						<button id="btn_delete_task" type="button" class="btn btn-danger btn-lg btn-block">Delete Task</button>
+					</div>
+				</form>
+			</div>
+		</div>
+			
+		<!-- Error area -->
+		<div class="container">	
+			<div id="error_area" class="alert alert-danger col-lg-10 col-lg-offset-1" role="alert">
+				
+			</div>
+		</div>
+		
+		<!-- Content -->
+		<div class="container">			
+			<!-- Table legend -->
+			<div class="table_legend">
+				<br />
+				<h4 id="table_legend_click">Table Legend (Click to view)</h4>
+				
+				<div id="table_hidden_legend">
+					<div class="table_legend_done">
+						<p>A green background symbolises a task that is <strong>done</strong></p>
+					</div>
+					
+					<br />
+					
+					<div class="table_legend_inprogress">
+						<p>A yellow background symbolises a task that is <strong>in progress</strong></p>
+					</div>
+		
+					<br />
+					
+					<div class="table_legend_new">
+						<p>A blue background symbolises a task that is <strong>new</strong></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Footer -->
+		<div class="footer_container">
+			<div class="footer_text">
+				<span>COM506 - <span class="footer_blue">Assignment 1</span> - Liam Logue</span>
+			</div>
+		</div>
+		
+		<!-- Load JS at the bottom of the page (faster page load) -->
+		<script src="scripts/jquery-1.11.1.min.js"></script>
+		<script src="scripts/bootstrap.min.js"></script>
+		<script src="scripts/script.js"></script>
+	</body>
+</html>

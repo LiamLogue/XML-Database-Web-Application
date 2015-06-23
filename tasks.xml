@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!-- Tasks -->
+<tasks>
+	<!-- Task -->
+	<task id="001">
+		<!-- Task Details -->
+		<title>Task #1</title>
+		<leader>D. Graves</leader>
+		<additionalParticipants>0</additionalParticipants>
+		<tcd>16-10-2014</tcd>
+		<summary>Remove all bugs in src code</summary>
+		<url>http://www.google.com/</url>
+		<status>New</status>
+	</task>
+	
+	<!-- Task -->
+	<task id="002">
+		<!-- Task Details -->
+		<title>Task #2</title>
+		<leader>E. Fiddlesticks</leader>
+		<additionalParticipants>C. Row</additionalParticipants>
+		<tcd>24-12-2014</tcd>
+		<summary>Clear crows from field</summary>
+		<url/>
+		<status>Done</status>
+	</task>
+	
+	<!-- Task -->
+	<task id="003">
+		<!-- Task Details -->
+		<title>Task #3</title>
+		<leader>G. Garen</leader>
+		<additionalParticipants>E. Lux, C. Lyn</additionalParticipants>
+		<tcd>23-11-2014</tcd>
+		<summary>Spin to win</summary>
+		<url>http://www.lootcrate.com/</url>
+		<status>In Progress</status>
+	</task>
+	
+	<!-- Task -->
+	<task id="004">
+		<!-- Task Details -->
+		<title>Task #4</title>
+		<leader>P. Poppy</leader>
+		<additionalParticipants>0</additionalParticipants>
+		<tcd>18-12-2014</tcd>
+		<summary>Hammer Time</summary>
+		<url/>
+		<status>New</status>
+	</task>
+	
+	<!-- Task -->
+	<task id="005">
+		<!-- Task Details -->
+		<title>Task #5</title>
+		<leader>N. Octurne</leader>
+		<additionalParticipants>T. Fate</additionalParticipants>
+		<tcd>03-02-2015</tcd>
+		<summary>Stay in the shadows</summary>
+		<url>http://www.reddit.com/</url>
+		<status>New</status>
+	</task>
+	
+	<!-- Task -->
+	<task id="006">
+		<!-- Task Details -->
+		<title>Task #6</title>
+		<leader>M. Yi</leader>
+		<additionalParticipants>0</additionalParticipants>
+		<tcd>04-05-2015</tcd>
+		<summary>Meditate</summary>
+		<url></url>
+		<status>In Progress</status>
+	<id>006</id></task>
+</tasks>
